@@ -1,4 +1,25 @@
-<h1>Student Page</h1>
-<p>Hello <b>Students</b></p>
-<p>Current Time: @DateTime.Now</p>
-<p>Calculation: 5 + 10 = @(5 + 10)</p>
+@model List<SchoolManagementSystem.Models.Student>
+<h1>Students Management</h1>
+<a href="/Student/Add">Add New Student</a>
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Grade</th>
+        <th>More</th>
+    </tr>
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.name</td>
+            <td>@student.age</td>
+            <td>@student.grade</td>
+            <td>
+                <a href="/Student/Details/@student.id">Details</a>
+                <a href="/Student/Edit/@student.id">Edit</a>
+                <a href="/Student/Delete/@student.id">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
