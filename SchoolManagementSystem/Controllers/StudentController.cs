@@ -11,5 +11,17 @@ namespace SchoolManagementSystem.Controllers
 		{
 			return View();
 		}
+
+		[HttpGet("Add")]
+		public IActionResult Create()
+		{
+			return View();
+		}
+
+		[HttpPost("View")]
+		public IActionResult Create(Student student)
+		{
+			return Content("Student Added: " + student.name);
+		}
 	}
 }
