@@ -15,7 +15,7 @@ namespace SchoolManagementSystem.Controllers
 		[HttpGet("Add")]
 		public IActionResult Create()
 		{
-			return View();
+			return View("create");
 		}
 
 		[HttpPost("View")]

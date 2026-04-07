@@ -4,4 +4,13 @@ public class Student
     public string name { get; set; }
     public int age { get; set; }
     public string grade { get; set; }
+
+    public Student()
+    {
+        id = 0;
+        name = string.Empty;
+        age = 0;
+        grade = string.Empty;
+    }
 }
+
