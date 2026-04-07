@@ -1,6 +1,6 @@
 # Build results
-bin/
-obj/
+SchoolManagementSystem/bin/
+SchoolManagementSystem/obj/
 
 # User-specific files
 *.user
