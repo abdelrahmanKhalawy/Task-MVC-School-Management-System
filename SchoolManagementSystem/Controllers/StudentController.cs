@@ -30,9 +30,13 @@ namespace SchoolManagementSystem.Controllers
 		[HttpPost("Add")]
 		public IActionResult Create(Student student)
 		{
-			context.Students.Add(student);
-			context.SaveChanges();
-			return RedirectToAction("Index");
+			if (ModelState.IsValid)
+			{
+				context.Students.Add(student);
+				context.SaveChanges();
+				return RedirectToAction("Index");
+			}
+			return View("create", student);
 		}
 
 		[HttpGet("Details/{id}")]
