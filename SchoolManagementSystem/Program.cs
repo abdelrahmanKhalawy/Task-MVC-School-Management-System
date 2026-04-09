@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Data;
 
@@ -5,8 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer("Server=.;Database=SchoolDB;Trusted_Connection=True;TrustServerCertificate=True"));
+builder.Services.AddValidatorsFromAssemblyContaining<StudentValidator>();
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -13,7 +13,7 @@ namespace SchoolManagementSystem.Controllers
 		{
 			this.context = context;
 		}
-		
+
 		[HttpGet("Index")]
 		public IActionResult Index()
 		{
@@ -57,15 +57,19 @@ namespace SchoolManagementSystem.Controllers
 		[HttpPost("Edit/{id}")]
 		public IActionResult Edit(Student student)
 		{
-			var existing = context.Students.FirstOrDefault(s => s.id == student.id);
-			if (existing != null)
+			if (ModelState.IsValid)
 			{
-				existing.name = student.name;
-				existing.age = student.age;
-				existing.grade = student.grade;
+				var existing = context.Students.FirstOrDefault(s => s.id == student.id);
+				if (existing != null)
+				{
+					existing.name = student.name;
+					existing.age = student.age;
+					existing.grade = student.grade;
+				}
+				context.SaveChanges();
+				return RedirectToAction("Index");
 			}
-			context.SaveChanges();
-			return RedirectToAction("Index");
+			return View(student);
 		}
 
 		[HttpGet("Delete/{id}")]

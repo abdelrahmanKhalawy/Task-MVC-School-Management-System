@@ -1,18 +1,22 @@
 @model SchoolManagementSystem.Models.Student
 
 <h1>Add Student Page</h1>
+
 <form method="post">
     <label>Name</label>
-    <input type="text" asp-for="name">
-        <span asp-validation-for="name"></span>
-        <br>
-        <label>Age</label>
-        <input type="number" asp-for="age">
-            <span asp-validation-for="age"></span>
-            <br>
-            <label>Grade</label>
-            <input type="number" asp-for="grade">
-                <span asp-validation-for="grade"></span>
-                <br>
-                <button type="submit">Save</button>
-            </form>
+    <input type="text" asp-for="name" />
+    <span asp-validation-for="name"></span>
+    <br>
+
+    <label>Age</label>
+    <input type="number" asp-for="age" />
+    <span asp-validation-for="age"></span>
+    <br>
+
+    <label>Grade</label>
+    <input type="number" asp-for="grade" />
+    <span asp-validation-for="grade"></span>
+    <br>
+    
+    <button type="submit">Save</button>
+</form>

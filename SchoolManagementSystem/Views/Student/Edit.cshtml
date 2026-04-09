@@ -3,18 +3,21 @@
 <h1>Edit Student</h1>
 
 <form method="post">
-    <input type="hidden" name="id" value="@Model.id" />
+    <input type="hidden" asp-for="id" />
 
     <label>Name</label>
-    <input type="text" name="name" value="@Model.name" />
+    <input type="text" asp-for="name" />
+    <span asp-validation-for="name"></span>
     <br>
 
     <label>Age</label>
-    <input type="number" name="age" value="@Model.age" />
+    <input type="number" asp-for="age" />
+    <span asp-validation-for="age"></span>
     <br>
 
     <label>Grade</label>
-    <input type="text" name="grade" value="@Model.grade" />
+    <input type="text" asp-for="grade" />
+    <span asp-validation-for="grade"></span>
     <br>
 
     <button type="submit">Save</button>
